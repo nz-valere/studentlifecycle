@@ -1,6 +1,14 @@
-# For StudentLifecycle
+# Stage 1: compile with Maven
+FROM maven:3.8.8-openjdk-17 AS builder
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+COPY src ./src
+RUN mvn clean package -DskipTests -B
+
+# Stage 2: runtime
 FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY target/StudentLifecylce-0.0.1-SNAPSHOT.jar .
+COPY --from=builder /app/target/StudentLifecylce-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8087
-ENTRYPOINT ["java", "-jar", "StudentLifecylce-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
