@@ -4,6 +4,16 @@ public class DocumentDto {
     private String name;
     private String url;
 
+    private Long candidateId;
+
+    public Long getCandidateId() {
+        return candidateId;
+    }
+
+    public void setCandidateId(Long candidateId) {
+        this.candidateId = candidateId;
+    }
+
     public String getName() {
         return name;
     }
