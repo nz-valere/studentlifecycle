@@ -12,6 +12,10 @@ import java.util.Optional;
 
 public interface DocumentRepository extends CrudRepository<Document, Long> {
 
+    Optional<Document> findDocumentsByCandidateId(Long id);
+
+    Document findDocumentByName(String name);
+
 
    /* @Query("SELECT d FROM Document d WHERE d.application.id = :applicationId")
     List<Document> findAllByApplicationId(@Param("applicationId")Long applicationId);

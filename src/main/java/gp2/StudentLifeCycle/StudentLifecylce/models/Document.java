@@ -13,12 +13,22 @@ public class Document {
     @Enumerated(EnumType.STRING)
     private Doctype doctype;
     @Lob
-    private byte[] url;
+    private String url;
 
     public enum Doctype {
         CV,BirthCertificate,coverLetter
     }
     private Long applicationId;
+
+    private Long candidateId;
+
+    public Long getCandidateId() {
+        return candidateId;
+    }
+
+    public void setCandidateId(Long candidateId) {
+        this.candidateId = candidateId;
+    }
 
 
     public Long getApplication() {
@@ -57,15 +67,11 @@ public class Document {
         return this;
     }
 
-    public byte[] getUrl() {
+    public String getUrl() {
         return url;
     }
 
-
-
-    public Document setUrl(byte[] url) {
+    public void setUrl(String url) {
         this.url = url;
-        return this;
     }
-
 }
