@@ -9,5 +9,7 @@ import java.util.Optional;
 public interface CandidateRepository extends CrudRepository<Candidate, Long> {
     Optional<Candidate> findCandidateById(Long aLong);
     Optional<Candidate> findCandidateByEmail(String email);
+
+//    Optional<Candidate> findCandidateByMatricule(String matricule);
     List<Candidate> findCandidateByStatus(Candidate.Status status);
 }
