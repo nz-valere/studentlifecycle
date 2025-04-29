@@ -35,6 +35,16 @@ public class Candidate {
 
     private String birthplace;
 
+    private String Matricule;
+
+    public String getMatricule() {
+        return Matricule;
+    }
+
+    public void setMatricule(String matricule) {
+        Matricule = matricule;
+    }
+
     @ManyToOne
     @JoinColumn(name = "Level_id", referencedColumnName = "id", nullable = false)
     private Level level;
