@@ -219,9 +219,9 @@ public class CandidateServiceImplement {
 
     private String getClassCode(String levelName) {
         return switch (levelName.toUpperCase()) {
-            case "BACHELOR" -> "LIC";
-            case "MASTER" -> "MAS";
-            case "ENGINEERING" -> "ING";
+            case "tronc commun" -> "ING";
+            case "isi" -> "ISI";
+            case "srt" -> "SRT";
             default -> "UNK"; // Unknown level
         };
     }
